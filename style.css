@@ -1,0 +1,61 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 120%;
+    align-items: center;
+    background-color: rgba(8, 8, 8, 0.936);
+    color: rgb(255, 232, 232);
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    font-size: 40px;
+    font-family: "Honk", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+    "MORF" 15,
+    "SHLN" 50;
+}
+
+.board {
+  width: 657px;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  border: 6px solid rgba(212, 73, 73, 0.181);
+  box-shadow: 0 10px 30px rgba(206, 211, 192, 0.879);
+}
+
+/* Each cell is a square thanks to aspect-ratio on the board and grid layout */
+.cell {
+  height: 80px;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgba(63, 197, 56, 0.532);
+}
+
+/* Paint the dark squares using nth-child math for an 8x8 board */
+.cell:nth-child(16n + 1),
+.cell:nth-child(16n + 3),
+.cell:nth-child(16n + 5),
+.cell:nth-child(16n + 7),
+.cell:nth-child(16n + 10),
+.cell:nth-child(16n + 12),
+.cell:nth-child(16n + 14),
+.cell:nth-child(16n + 16) {
+  background-color: rgb(255, 255, 255);
+}
